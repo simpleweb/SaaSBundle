@@ -1,0 +1,29 @@
+{
+    "name": "simpleweb/saas-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 bundle that makes it easier to build subscription-based SaaS products",
+    "keywords": [ "simpleweb", "saas" ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steve Lacey",
+            "email": "steve@simpleweb.co.uk"
+        }
+    ],
+    "require": {
+        "php": "~5.3",
+        "symfony/framework-bundle": "~2.4",
+        "symfony/form": "~2.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7"
+    },
+    "autoload": {
+        "psr-4": { "Simpleweb\\SaaSBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
