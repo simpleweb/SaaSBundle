@@ -1,6 +1,6 @@
 services:
     simpleweb.saas.form.type.registration:
-        class: Simpleweb\SaaSBundle\Form\Type\RegistrationFormType
+        class: %simpleweb.saas.form.type.registration.class%
         arguments:
             - "%fos_user.model.user.class%"
             - "%simpleweb.saas.plan.class%"
@@ -20,4 +20,5 @@ services:
             - "%simpleweb.saas.subscription.class%"
 
 parameters:
+    simpleweb.saas.form.type.registration.class: Simpleweb\SaaSBundle\Form\Type\RegistrationFormType
     simpleweb.saas.subscription.manager.class: Simpleweb\SaaSBundle\Manager\SubscriptionManager
