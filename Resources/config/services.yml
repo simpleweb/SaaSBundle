@@ -1,0 +1,23 @@
+services:
+    simpleweb.saas.form.type.registration:
+        class: Simpleweb\SaaSBundle\Form\Type\RegistrationFormType
+        arguments:
+            - "%fos_user.model.user.class%"
+            - "%simpleweb.saas.plan.class%"
+        tags:
+            - { name: form.type, alias: simpleweb_saas_user_registration }
+
+    simpleweb.saas.registration_success:
+        class: Simpleweb\SaaSBundle\EventListener\RegistrationSuccessListener
+        arguments:
+            - @simpleweb.saas.subscription.manager
+        tags:
+            - { name: kernel.event_subscriber }
+
+    simpleweb.saas.subscription.manager:
+        class: %simpleweb.saas.subscription.manager.class%
+        arguments:
+            - "%simpleweb.saas.subscription.class%"
+
+parameters:
+    simpleweb.saas.subscription.manager.class: Simpleweb\SaaSBundle\Manager\SubscriptionManager

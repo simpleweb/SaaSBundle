@@ -5,7 +5,7 @@ namespace Simpleweb\SaaSBundle\Entity\Traits;
 trait Subscriber
 {
     /**
-     * @ORM\OneToMany(targetEntity="Simpleweb\SaaSBundle\Entity\SubscriptionInterface", mappedBy="user")
+     * @ORM\OneToMany(targetEntity = "Simpleweb\SaaSBundle\Entity\SubscriptionInterface", mappedBy = "user", cascade = {"persist"})
      * @ORM\OrderBy({"created_at" = "DESC"})
      */
     protected $subscriptions;
@@ -28,12 +28,12 @@ trait Subscriber
 
     /**
      * @param SubscriptionInterface $subscription
-     * @return FOS\UserBundle\Model\Entity\UserInterface
+     * @return FOS\UserBundle\Model\UserInterface
      */
-    public function addSubscription(SubscriptionInterface $subscription)
+    public function addSubscription(\Simpleweb\SaaSBundle\Entity\SubscriptionInterface $subscription)
     {
         $this->getSubscriptions()->add($subscription);
-        $subscription->setReport($this);
+        $subscription->setUser($this);
 
         return $this;
     }

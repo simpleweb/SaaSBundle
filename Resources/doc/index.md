@@ -156,7 +156,7 @@ lines of the following should do the trick.
 doctrine:
     orm:
         resolve_target_entities:
-            FOS\UserBundle\Model\Entity\UserInterface: Acme\UserBundle\Entity\User
+            FOS\UserBundle\Model\UserInterface: Acme\UserBundle\Entity\User
             Simpleweb\SaaSBundle\Entity\PlanInterface: Acme\SaaSBundle\Entity\Plan
             Simpleweb\SaaSBundle\Entity\SubscriptionInterface: Acme\SaaSBundle\Entity\Subscription
 ```

@@ -2,7 +2,7 @@
 
 namespace Simpleweb\SaaSBundle\Entity;
 
-use FOS\UserBundle\Model\Entity\UserInterface;
+use FOS\UserBundle\Model\UserInterface;
 
 interface SubscriptionInterface
 {

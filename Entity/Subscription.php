@@ -4,7 +4,7 @@ namespace Simpleweb\SaaSBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection,
     Doctrine\ORM\Mapping as ORM,
-    FOS\UserBundle\Model\Entity\UserInterface,
+    FOS\UserBundle\Model\UserInterface,
     Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -22,7 +22,7 @@ abstract class Subscription implements SubscriptionInterface
     protected $plan;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FOS\UserBundle\Model\Entity\UserInterface", inversedBy="subscriptions")
+     * @ORM\ManyToOne(targetEntity = "FOS\UserBundle\Model\UserInterface", inversedBy = "subscriptions")
      * @ORM\JoinColumn(nullable = false)
      */
     protected $user;
@@ -60,7 +60,7 @@ abstract class Subscription implements SubscriptionInterface
     }
 
     /**
-     * @return FOS\UserBundle\Model\Entity\UserInterface
+     * @return FOS\UserBundle\Model\UserInterface
      */
     public function getUser()
     {
@@ -68,7 +68,7 @@ abstract class Subscription implements SubscriptionInterface
     }
 
     /**
-     * @param FOS\UserBundle\Model\Entity\UserInterface
+     * @param FOS\UserBundle\Model\UserInterface
      * @return Subscription
      */
     public function setUser(UserInterface $user)
