@@ -34,7 +34,7 @@ Installation is a quick (I promise!) 7 step process:
 
 Add SimplewebSaaSBundle in your composer.json:
 
-```js
+``` js
 {
     "require": {
         "simpleweb/saas-bundle": "~0.1@dev"
@@ -90,7 +90,7 @@ class User extends BaseUser
 
 ### Step 4: Create your Plan and Subscription classes
 
-```
+``` php
 // src/Acme/SaaSBundle/Entity/Plan.php
 <?php
 
@@ -108,7 +108,7 @@ class Plan extends BasePlan
 }
 ```
 
-```
+``` php
 // src/Acme/SaaSBundle/Entity/Subscription.php
 <?php
 
