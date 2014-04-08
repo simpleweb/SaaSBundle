@@ -20,6 +20,7 @@ class RegistrationFormType extends BaseRegistrationFormType
 
         $builder->add('plan', 'entity', [
             'class' => $this->plan_class,
+            'expanded' => true,
             'mapped' => false
         ]);
     }
