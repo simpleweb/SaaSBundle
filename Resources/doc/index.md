@@ -88,7 +88,78 @@ class User extends BaseUser
 }
 ```
 
+### Step 4: Create your Plan and Subscription classes
+
+```
+// src/Acme/SaaSBundle/Entity/Plan.php
+<?php
+
+namespace Acme\SaaSBundle\SaaSBundle\Entity;
+
+use Simpleweb\SaaSBundle\Entity\Plan as BasePlan,
+    Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="plans")
+ */
+class Plan extends BasePlan
+{
+}
+```
+
+```
+// src/Acme/SaaSBundle/Entity/Subscription.php
+<?php
+
+namespace Acme\SaaSBundle\SaaSBundle\Entity;
+
+use Simpleweb\SaaSBundle\Entity\Subscription as BaseSubscription,
+    Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="subscriptions")
+ */
+class Subscription extends BaseSubscription
+{
+}
+
+```
+
+**Warning:**
+
+> When you extend from the mapped superclass provided by the bundle, don't
+> redefine the mapping for the other fields as it is provided by the bundle.
+
+Your entity classes can live inside any bundle in your application. For example,
+if you work at "Acme" company, then you might create a bundle called `AcmeSaaSBundle`
+and place your entity classes in it.
+
+**Note:**
+
+> The doc uses a bundle named `AcmeSaaSBundle`. If you want to use the same
+> name, you need to register it in your kernel. But you can of course place
+> your user class in the bundle you want.
+
+> If you override the __construct() method in your entity classes, be sure
+> to call parent::__construct(), as the base entity classes depends on
+> this to initialize some fields.
+
 ### Step 5: Configure the SimplewebSaaSBundle
+
+You'll need to specify resolve_target_entities mapping for the relationships in
+SaaSBundle to map correctly to the classes in your bundles, something along the
+lines of the following should do the trick.
+
+``` yaml
+doctrine:
+    orm:
+        resolve_target_entities:
+            FOS\UserBundle\Model\Entity\UserInterface: Acme\UserBundle\Entity\User
+            Simpleweb\SaaSBundle\Entity\PlanInterface: Acme\SaaSBundle\Entity\Plan
+            Simpleweb\SaaSBundle\Entity\SubscriptionInterface: Acme\SaaSBundle\Entity\Subscription
+```
 
 ...
 

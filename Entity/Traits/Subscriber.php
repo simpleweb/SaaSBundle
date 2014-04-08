@@ -2,31 +2,38 @@
 
 namespace Simpleweb\SaaSBundle\Entity\Traits;
 
-use Doctrine\ORM\Mapping as ORM;
-
 trait Subscriber
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Simpleweb\SaaSBundle\Entity\Feature", inversedBy="users")
+     * @ORM\OneToMany(targetEntity="Simpleweb\SaaSBundle\Entity\SubscriptionInterface", mappedBy="user")
+     * @ORM\OrderBy({"created_at" = "DESC"})
      */
-    protected $features;
+    protected $subscriptions;
 
-    public function getFeatures()
+    /**
+     * @return SubscriptionInterface
+     */
+    public function getSubscription()
     {
-        return $this->features;
+        return $this->getSubscriptions()->last();
     }
 
-    public function addFeature(Feature $feature)
+    /**
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getSubscriptions()
     {
-        $this->getFeatures()->add($feature);
-        $feature->setFeature($this);
-
-        return $this;
+        return $this->subscriptions;
     }
 
-    public function removeFeature(Feature $feature)
+    /**
+     * @param SubscriptionInterface $subscription
+     * @return FOS\UserBundle\Model\Entity\UserInterface
+     */
+    public function addSubscription(SubscriptionInterface $subscription)
     {
-        $this->getFeatures()->removeElement($feature);
+        $this->getSubscriptions()->add($subscription);
+        $subscription->setReport($this);
 
         return $this;
     }
