@@ -7,9 +7,10 @@ services:
         tags:
             - { name: form.type, alias: simpleweb_saas_user_registration }
 
-    simpleweb.saas.registration_success:
-        class: Simpleweb\SaaSBundle\EventListener\RegistrationSuccessListener
+    simpleweb.saas.registration_listener:
+        class: Simpleweb\SaaSBundle\EventListener\RegistrationListener
         arguments:
+            - @event_dispatcher
             - @simpleweb.saas.subscription.manager
         tags:
             - { name: kernel.event_subscriber }
