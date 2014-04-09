@@ -10,7 +10,7 @@ trait Plan
 
     /**
      * @Assert\NotBlank
-     * @ORM\Column(nullable = false, length = 100)
+     * @ORM\Column(length = 100)
      */
     protected $name;
 
@@ -20,14 +20,14 @@ trait Plan
     protected $description;
 
     /**
-     * @ORM\Column(type = "decimal", scale = 2, nullable = true)
+     * @ORM\Column(type = "decimal", scale = 2)
      */
-    protected $price;
+    protected $price = 0;
 
     /**
-     * @ORM\Column(type = "decimal", scale = 2, nullable = true)
+     * @ORM\Column(type = "decimal", scale = 2)
      */
-    protected $discount;
+    protected $discount = 0;
 
     /**
      * @return string
