@@ -30,6 +30,11 @@ trait Plan
     protected $discount = 0;
 
     /**
+     * @ORM\Column(length = 3)
+     */
+    protected $currency = 'GBP';
+
+    /**
      * @return string
      */
     public function getName()
@@ -82,6 +87,25 @@ trait Plan
     public function setDiscount($discount)
     {
         $this->discount = $discount;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param string $currency
+     * @return PlanInterface
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
 
         return $this;
     }
