@@ -1,0 +1,8 @@
+services:
+    simpleweb.saas.subscription.manager:
+        class: %simpleweb.saas.subscription.manager.class%
+        arguments:
+            - "%simpleweb.saas.subscription.class%"
+
+parameters:
+    simpleweb.saas.subscription.manager.class: Simpleweb\SaaSBundle\Manager\SubscriptionManager

@@ -37,4 +37,15 @@ trait Subscriber
 
         return $this;
     }
+
+    /**
+     * @param SubscriptionInterface $subscription
+     * @return FOS\UserBundle\Model\UserInterface
+     */
+    public function removeSubscription(\Simpleweb\SaaSBundle\Entity\SubscriptionInterface $subscription)
+    {
+        $this->getSubscriptions()->removeElement($subscription);
+
+        return $this;
+    }
 }

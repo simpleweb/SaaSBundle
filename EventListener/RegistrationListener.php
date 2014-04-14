@@ -23,9 +23,6 @@ class RegistrationListener implements EventSubscriberInterface
         $this->subscription_manager = $subscription_manager;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     public static function getSubscribedEvents()
     {
         return array(

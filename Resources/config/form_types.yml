@@ -1,0 +1,20 @@
+services:
+    simpleweb.saas.form.type.registration:
+        class: %simpleweb.saas.form.type.registration.class%
+        arguments:
+            - "%fos_user.model.user.class%"
+            - "%simpleweb.saas.plan.class%"
+            - @session
+        tags:
+            - { name: form.type, alias: simpleweb_saas_user_registration }
+
+    simpleweb.saas.form.type.referrer:
+        class: %simpleweb.saas.form.type.referrer.class%
+        arguments:
+            - @fos_user.user_manager
+        tags:
+            - { name: form.type, alias: simpleweb_saas_referrer }
+
+parameters:
+    simpleweb.saas.form.type.registration.class: Simpleweb\SaaSBundle\Form\Type\RegistrationFormType
+    simpleweb.saas.form.type.referrer.class: Simpleweb\SaaSBundle\Form\Type\ReferrerFormType
