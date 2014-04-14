@@ -33,7 +33,7 @@ class ReferrerFormType extends Form\AbstractType
 
     public function getParent()
     {
-        return 'text';
+        return 'hidden';
     }
 
     public function getName()
