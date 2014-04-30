@@ -30,9 +30,11 @@ trait Plan
     protected $discount = 0;
 
     /**
-     * @ORM\Column(length = 3)
+     * @var Currency $currency
+     *
+     * @ORM\ManyToOne(targetEntity="Lexik\Bundle\CurrencyBundle\Entity\Currency", fetch="EAGER")
      */
-    protected $currency = 'GBP';
+    protected $currency;
 
     /**
      * @return string
