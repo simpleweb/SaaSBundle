@@ -67,7 +67,7 @@ public function registerBundles()
 }
 ```
 
-### Step 3: Add the Subscriber trait to your User class
+### Step 3: Add our traits to your User class
 
 ``` php
 <?php
@@ -75,8 +75,8 @@ public function registerBundles()
 
 namespace Acme\UserBundle\Entity;
 
-use Simpleweb\SaaSBundle\Model\User as BaseUser;
-use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser,
+    Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
@@ -85,6 +85,7 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     use Simpleweb\SaaSBundle\Entity\Traits\Subscriber;
+    use Simpleweb\SaaSBundle\Entity\Traits\Referrer; // (optional)
 }
 ```
 
