@@ -20,6 +20,7 @@ class SubscriptionManager
 
         $subscription
             ->setName($plan->getName())
+            ->setCurrency($plan->getCurrency())
             ->setPrice($plan->getPrice())
             ->setDiscount($plan->getDiscount())
             ->setPlan($plan)
