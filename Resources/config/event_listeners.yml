@@ -2,7 +2,6 @@ services:
     simpleweb.saas.registration_listener:
         class: Simpleweb\SaaSBundle\EventListener\RegistrationListener
         arguments:
-            - @event_dispatcher
             - @simpleweb.saas.subscription.manager
         tags:
             - { name: kernel.event_subscriber }
