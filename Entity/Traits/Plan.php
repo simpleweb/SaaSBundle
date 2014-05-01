@@ -64,6 +64,29 @@ trait Plan
     }
 
     /**
+     * @return float
+     */
+    public function getPriceInCents()
+    {
+        return $this->getPrice() * 100;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDiscountedPrice()
+    {
+        return $this->getPrice() * (1 - $this->getDiscount());
+    }
+    /**
+     * @return float
+     */
+    public function getDiscountedPriceInCents()
+    {
+        return $this->getDiscountPrice() * 100;
+    }
+
+    /**
      * @param float $price
      * @return PlanInterface
      */
