@@ -83,7 +83,7 @@ trait Plan
      */
     public function getDiscountedPriceInCents()
     {
-        return $this->getDiscountPrice() * 100;
+        return $this->getDiscountedPrice() * 100;
     }
 
     /**
