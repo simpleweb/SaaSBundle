@@ -25,6 +25,7 @@ trait Plan
     protected $price = 0;
 
     /**
+     * @Assert\Range(min = 0, max = 1, maxMessage = "This value should be 100 or less")
      * @ORM\Column(type = "decimal", scale = 5)
      */
     protected $discount = 0;
