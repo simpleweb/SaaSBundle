@@ -25,7 +25,7 @@ trait Plan
     protected $price = 0;
 
     /**
-     * @ORM\Column(type = "decimal", scale = 2)
+     * @ORM\Column(type = "decimal", scale = 5)
      */
     protected $discount = 0;
 
